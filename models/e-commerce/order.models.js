@@ -1,0 +1,41 @@
+import mangooes from 'mongoose';
+
+const orderItemSchema = new mangooes.Schema({
+  productId: {
+    type: mangooes.Schema.Types.ObjectId,
+    ref: 'Product',
+  },
+  quantity: {
+    type: Number,
+    required: true,
+  },
+});
+
+const orderSchema = new mangooes.Schema(
+  {
+    orderPrice: {
+      type: Number,
+      require: true,
+    },
+    customer: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User',
+      require: true,
+    },
+    orderItems: {
+      type: [orderItemSchema],
+      require: true,
+    },
+    address: {
+      type: string,
+      require: true,
+    },
+    status: {
+      type: String,
+      enum: ['PENDING', 'CANCELLED', 'DELIVERED'],
+      default: 'PENDING',
+    },
+  },
+  { timestamps: true }
+);
+export const Order = mangooes.model('Order', orderSchema);
