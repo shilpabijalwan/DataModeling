@@ -1,5 +1,5 @@
-import mongooes from 'mongoose';
-const userSchema = new mongooes.Schema(
+import mongoose from "mongoose";
+const userSchema = new mongoose.Schema(
   {
     username: {
       type: String,
@@ -21,4 +21,4 @@ const userSchema = new mongooes.Schema(
   { timestamps }
 );
 
-export const User = mongooes.model('USer', userSchema);
+export const User = mongoose.model("USer", userSchema);

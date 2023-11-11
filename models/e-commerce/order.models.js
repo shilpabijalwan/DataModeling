@@ -1,8 +1,8 @@
-import mangooes from 'mongoose';
+import mongoose from 'mongoose';
 
-const orderItemSchema = new mangooes.Schema({
+const orderItemSchema = new mongoose.Schema({
   productId: {
-    type: mangooes.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'Product',
   },
   quantity: {
@@ -11,7 +11,7 @@ const orderItemSchema = new mangooes.Schema({
   },
 });
 
-const orderSchema = new mangooes.Schema(
+const orderSchema = new mongoose.Schema(
   {
     orderPrice: {
       type: Number,
@@ -38,4 +38,4 @@ const orderSchema = new mangooes.Schema(
   },
   { timestamps: true }
 );
-export const Order = mangooes.model('Order', orderSchema);
+export const Order = mongoose.model('Order', orderSchema);

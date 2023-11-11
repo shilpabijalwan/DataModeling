@@ -1,5 +1,5 @@
-import mongooes from 'mongooes';
-const productSchema = new mongooes.Schema(
+import mongoose from "mongoose";
+const productSchema = new mongoose.Schema(
   {
     description: {
       type: String,
@@ -24,16 +24,16 @@ const productSchema = new mongooes.Schema(
       required: true,
     },
     category: {
-      type: mongooes.Schema.Types.ObjectID,
-      ref:"Category",
+      type: mongoose.Schema.Types.ObjectID,
+      ref: "Category",
       required: true,
     },
     owner: {
-      type: mongooes.Schema.Types.ObjectID,
-      ref:"User",
+      type: mongoose.Schema.Types.ObjectID,
+      ref: "User",
       required: true,
     },
   },
   { timestemps: true }
 );
-export const Product = mongooes.model('Product', productSchema);
+export const Product = mongoose.model("Product", productSchema);
